@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11858AAE2E7ED93C007E6C74 /* petros_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11858AAD2E7ED93C007E6C74 /* petros_appApp.swift */; };
+		11858AB02E7ED93C007E6C74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11858AAF2E7ED93C007E6C74 /* ContentView.swift */; };
+		11858AB22E7ED940007E6C74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11858AB12E7ED940007E6C74 /* Assets.xcassets */; };
+		11858AB52E7ED940007E6C74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11858AB42E7ED940007E6C74 /* Preview Assets.xcassets */; };
+		11858ABF2E7ED940007E6C74 /* petros_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11858ABE2E7ED940007E6C74 /* petros_appTests.swift */; };
+		11858AC92E7ED940007E6C74 /* petros_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11858AC82E7ED940007E6C74 /* petros_appUITests.swift */; };
+		11858ACB2E7ED940007E6C74 /* petros_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11858ACA2E7ED940007E6C74 /* petros_appUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11858ABB2E7ED940007E6C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11858AA22E7ED93C007E6C74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11858AA92E7ED93C007E6C74;
+			remoteInfo = "petros-app";
+		};
+		11858AC52E7ED940007E6C74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11858AA22E7ED93C007E6C74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 11858AA92E7ED93C007E6C74;
+			remoteInfo = "petros-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11858AAA2E7ED93C007E6C74 /* petros-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petros-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11858AAD2E7ED93C007E6C74 /* petros_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appApp.swift; sourceTree = "<group>"; };
+		11858AAF2E7ED93C007E6C74 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		11858AB12E7ED940007E6C74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		11858AB42E7ED940007E6C74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		11858ABA2E7ED940007E6C74 /* petros-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "petros-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11858ABE2E7ED940007E6C74 /* petros_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appTests.swift; sourceTree = "<group>"; };
+		11858AC42E7ED940007E6C74 /* petros-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "petros-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11858AC82E7ED940007E6C74 /* petros_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITests.swift; sourceTree = "<group>"; };
+		11858ACA2E7ED940007E6C74 /* petros_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		11858AA72E7ED93C007E6C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AB72E7ED940007E6C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AC12E7ED940007E6C74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11858AA12E7ED93C007E6C74 = {
+			isa = PBXGroup;
+			children = (
+				11858AAC2E7ED93C007E6C74 /* petros-app */,
+				11858ABD2E7ED940007E6C74 /* petros-appTests */,
+				11858AC72E7ED940007E6C74 /* petros-appUITests */,
+				11858AAB2E7ED93C007E6C74 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		11858AAB2E7ED93C007E6C74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				11858AAA2E7ED93C007E6C74 /* petros-app.app */,
+				11858ABA2E7ED940007E6C74 /* petros-appTests.xctest */,
+				11858AC42E7ED940007E6C74 /* petros-appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11858AAC2E7ED93C007E6C74 /* petros-app */ = {
+			isa = PBXGroup;
+			children = (
+				11858AAD2E7ED93C007E6C74 /* petros_appApp.swift */,
+				11858AAF2E7ED93C007E6C74 /* ContentView.swift */,
+				11858AB12E7ED940007E6C74 /* Assets.xcassets */,
+				11858AB32E7ED940007E6C74 /* Preview Content */,
+			);
+			path = "petros-app";
+			sourceTree = "<group>";
+		};
+		11858AB32E7ED940007E6C74 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				11858AB42E7ED940007E6C74 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		11858ABD2E7ED940007E6C74 /* petros-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				11858ABE2E7ED940007E6C74 /* petros_appTests.swift */,
+			);
+			path = "petros-appTests";
+			sourceTree = "<group>";
+		};
+		11858AC72E7ED940007E6C74 /* petros-appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				11858AC82E7ED940007E6C74 /* petros_appUITests.swift */,
+				11858ACA2E7ED940007E6C74 /* petros_appUITestsLaunchTests.swift */,
+			);
+			path = "petros-appUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		11858AA92E7ED93C007E6C74 /* petros-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11858ACE2E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-app" */;
+			buildPhases = (
+				11858AA62E7ED93C007E6C74 /* Sources */,
+				11858AA72E7ED93C007E6C74 /* Frameworks */,
+				11858AA82E7ED93C007E6C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "petros-app";
+			productName = "petros-app";
+			productReference = 11858AAA2E7ED93C007E6C74 /* petros-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		11858AB92E7ED940007E6C74 /* petros-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11858AD12E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-appTests" */;
+			buildPhases = (
+				11858AB62E7ED940007E6C74 /* Sources */,
+				11858AB72E7ED940007E6C74 /* Frameworks */,
+				11858AB82E7ED940007E6C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11858ABC2E7ED940007E6C74 /* PBXTargetDependency */,
+			);
+			name = "petros-appTests";
+			productName = "petros-appTests";
+			productReference = 11858ABA2E7ED940007E6C74 /* petros-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		11858AC32E7ED940007E6C74 /* petros-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11858AD42E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-appUITests" */;
+			buildPhases = (
+				11858AC02E7ED940007E6C74 /* Sources */,
+				11858AC12E7ED940007E6C74 /* Frameworks */,
+				11858AC22E7ED940007E6C74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11858AC62E7ED940007E6C74 /* PBXTargetDependency */,
+			);
+			name = "petros-appUITests";
+			productName = "petros-appUITests";
+			productReference = 11858AC42E7ED940007E6C74 /* petros-appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		11858AA22E7ED93C007E6C74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					11858AA92E7ED93C007E6C74 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					11858AB92E7ED940007E6C74 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 11858AA92E7ED93C007E6C74;
+					};
+					11858AC32E7ED940007E6C74 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 11858AA92E7ED93C007E6C74;
+					};
+				};
+			};
+			buildConfigurationList = 11858AA52E7ED93C007E6C74 /* Build configuration list for PBXProject "petros-app" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 11858AA12E7ED93C007E6C74;
+			productRefGroup = 11858AAB2E7ED93C007E6C74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				11858AA92E7ED93C007E6C74 /* petros-app */,
+				11858AB92E7ED940007E6C74 /* petros-appTests */,
+				11858AC32E7ED940007E6C74 /* petros-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		11858AA82E7ED93C007E6C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11858AB52E7ED940007E6C74 /* Preview Assets.xcassets in Resources */,
+				11858AB22E7ED940007E6C74 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AB82E7ED940007E6C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AC22E7ED940007E6C74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		11858AA62E7ED93C007E6C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11858AB02E7ED93C007E6C74 /* ContentView.swift in Sources */,
+				11858AAE2E7ED93C007E6C74 /* petros_appApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AB62E7ED940007E6C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11858ABF2E7ED940007E6C74 /* petros_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11858AC02E7ED940007E6C74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11858AC92E7ED940007E6C74 /* petros_appUITests.swift in Sources */,
+				11858ACB2E7ED940007E6C74 /* petros_appUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11858ABC2E7ED940007E6C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11858AA92E7ED93C007E6C74 /* petros-app */;
+			targetProxy = 11858ABB2E7ED940007E6C74 /* PBXContainerItemProxy */;
+		};
+		11858AC62E7ED940007E6C74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 11858AA92E7ED93C007E6C74 /* petros-app */;
+			targetProxy = 11858AC52E7ED940007E6C74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11858ACC2E7ED940007E6C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		11858ACD2E7ED940007E6C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		11858ACF2E7ED940007E6C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"petros-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		11858AD02E7ED940007E6C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"petros-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		11858AD22E7ED940007E6C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/petros-app.app/petros-app";
+			};
+			name = Debug;
+		};
+		11858AD32E7ED940007E6C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/petros-app.app/petros-app";
+			};
+			name = Release;
+		};
+		11858AD52E7ED940007E6C74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "petros-app";
+			};
+			name = Debug;
+		};
+		11858AD62E7ED940007E6C74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.petros.petros-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "petros-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11858AA52E7ED93C007E6C74 /* Build configuration list for PBXProject "petros-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11858ACC2E7ED940007E6C74 /* Debug */,
+				11858ACD2E7ED940007E6C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11858ACE2E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11858ACF2E7ED940007E6C74 /* Debug */,
+				11858AD02E7ED940007E6C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11858AD12E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11858AD22E7ED940007E6C74 /* Debug */,
+				11858AD32E7ED940007E6C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11858AD42E7ED940007E6C74 /* Build configuration list for PBXNativeTarget "petros-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11858AD52E7ED940007E6C74 /* Debug */,
+				11858AD62E7ED940007E6C74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 11858AA22E7ED93C007E6C74 /* Project object */;
+}
