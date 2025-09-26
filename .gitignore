@@ -2,6 +2,10 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+# Ignored images for now as they are proprietary 
+/images
+petros-app/Assets.xcassets/
+
 ## User settings
 xcuserdata/
 

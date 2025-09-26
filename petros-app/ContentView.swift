@@ -71,15 +71,20 @@ struct LineBreak: View {
 
 struct TopBar: View {
     var body: some View {
-        HStack(alignment: .top) {
-            Text("Petros")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding(.leading, 16)
-                .padding(.top, 8)
-                .padding(.bottom, 8)
-            
+        HStack(alignment: .center) {
+            HStack(spacing: 8) {
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                Text("Petros")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .padding(.leading, 16)
+            .padding(.vertical, 8)
+
             Spacer()
         }
         .frame(maxWidth: .infinity, minHeight: 50)
@@ -87,6 +92,7 @@ struct TopBar: View {
         .ignoresSafeArea(.all, edges: .top)
     }
 }
+
 
 struct ArticleView: View {
     let article: Article
@@ -103,15 +109,15 @@ struct ArticleView: View {
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
-            
+
             Text(article.description)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .lineLimit(5)
+            
             Text("Listen to the recording")
                 .font(.footnote)
                 .foregroundColor(.secondary)
-        
         }
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, alignment: .leading)
