@@ -15,11 +15,14 @@ struct ContentView: View {
             TopBar()
             
             if selectedTab == 0 {
-                VStack(spacing: 0) {
-                    FoundationNightSection()
-                    LineBreak()
-                    RecordingsSection()
-                    Spacer()
+                ScrollView {
+                    VStack(spacing: 0) {
+                        FoundationNightSection(title: "Foundation Night: October", description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum")
+                        LineBreak()
+                        RecordingsSection()
+                        LineBreak()
+                        AdditionalFoundationSections()
+                    }
                 }
             } else {
                 // change
@@ -74,6 +77,14 @@ struct TopBar: View {
 }
 
 struct FoundationNightSection: View {
+    let title: String
+    let description: String
+    
+    init(title: String, description: String) {
+        self.title = title
+        self.description = description
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("IN THE WORLD BUT NOT OF THE WORLD")
@@ -81,12 +92,12 @@ struct FoundationNightSection: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.primary)
             
-            Text("Foundation Night: September")
+            Text(title)
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
             
-            Text("Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum")
+            Text(description)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .lineLimit(5)
@@ -189,9 +200,8 @@ struct BottomNavigation: View {
                             .foregroundColor(selectedTab == index ? .white : .primary)
                     }
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
                     .background(
-                        RoundedRectangle(cornerRadius: 8)
+                        Rectangle()
                             .fill(selectedTab == index ? Color(red: 0.1, green: 0.2, blue: 0.6) : Color(red: 0.7, green: 0.85, blue: 1.0))
                     )
                 }
@@ -210,6 +220,22 @@ struct BottomNavigation: View {
     
     private var tabTitles: [String] {
         ["Home", "Recordings", "Calendar", "Files", "Something"]
+    }
+}
+
+struct AdditionalFoundationSections: View {
+    var body: some View {
+        VStack(spacing: 0) {
+            FoundationNightSection(title: "Foundation Night: September", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.")
+            LineBreak()
+            FoundationNightSection(title: "Foundation Night: August", description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+            LineBreak()
+            FoundationNightSection(title: "Foundation Night: July", description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.")
+            LineBreak()
+            FoundationNightSection(title: "Foundation Night: June", description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.")
+            LineBreak()
+            FoundationNightSection(title: "Foundation Night: May", description: "Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.")
+        }
     }
 }
 
