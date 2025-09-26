@@ -198,14 +198,14 @@ struct BottomNavigation: View {
                 .buttonStyle(PlainButtonStyle())
             }
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
+        .padding(.top, 8)
+        .padding(.horizontal, 0)
+        .padding(.bottom, 0)
         .background(
-            RoundedRectangle(cornerRadius: 12)
+            Rectangle()
                 .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
         )
-        .padding(.horizontal, 16)
-        .padding(.bottom, 8)
+        .ignoresSafeArea(.all, edges: .bottom)
     }
     
     private var tabTitles: [String] {
