@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1123C8522E86390A00CB38C0 /* ArticleFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */; };
+		1123C8532E86390A00CB38C0 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1123C8512E86390A00CB38C0 /* Article.swift */; };
 		11753A672E861B9F003B055D /* petros_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A662E861B9F003B055D /* petros_appApp.swift */; };
 		11753A692E861B9F003B055D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A682E861B9F003B055D /* ContentView.swift */; };
 		11753A6B2E861BA2003B055D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11753A6A2E861BA2003B055D /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleFetcher.swift; sourceTree = "<group>"; };
+		1123C8512E86390A00CB38C0 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		11753A632E861B9F003B055D /* petros-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petros-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11753A662E861B9F003B055D /* petros_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appApp.swift; sourceTree = "<group>"; };
 		11753A682E861B9F003B055D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1123C8542E86394700CB38C0 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				1123C8512E86390A00CB38C0 /* Article.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		1123C8552E86396900CB38C0 /* fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */,
+			);
+			path = fetchers;
+			sourceTree = "<group>";
+		};
 		11753A5A2E861B9F003B055D = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +114,8 @@
 		11753A652E861B9F003B055D /* petros-app */ = {
 			isa = PBXGroup;
 			children = (
+				1123C8552E86396900CB38C0 /* fetchers */,
+				1123C8542E86394700CB38C0 /* models */,
 				11753A662E861B9F003B055D /* petros_appApp.swift */,
 				11753A682E861B9F003B055D /* ContentView.swift */,
 				11753A6A2E861BA2003B055D /* Assets.xcassets */,
@@ -257,8 +279,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1123C8532E86390A00CB38C0 /* Article.swift in Sources */,
 				11753A692E861B9F003B055D /* ContentView.swift in Sources */,
 				11753A672E861B9F003B055D /* petros_appApp.swift in Sources */,
+				1123C8522E86390A00CB38C0 /* ArticleFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
