@@ -24,7 +24,7 @@ struct ContentView: View {
                         
                         ForEach(Array(foundationArticles.enumerated()), id: \.offset) { index, article in
                             VStack(spacing: 0) {
-                                FoundationNightSection(title: article.title, description: article.description)
+                                ArticleView(article: article)
                                 if index < foundationArticles.count - 1 {
                                     LineBreak()
                                 }
@@ -65,7 +65,7 @@ struct LineBreak: View {
         Rectangle()
             .fill(Color.gray)
             .frame(height: 1)
-            .padding(.horizontal, 16)
+            .padding(.all, 16)
     }
 }
 
@@ -88,28 +88,23 @@ struct TopBar: View {
     }
 }
 
-struct FoundationNightSection: View {
-    let title: String
-    let description: String
-    
-    init(title: String, description: String) {
-        self.title = title
-        self.description = description
-    }
+struct ArticleView: View {
+    let article: Article
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("IN THE WORLD BUT NOT OF THE WORLD")
+            Text(article.title)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(.primary)
+                .lineLimit(2)
             
-            Text(title)
+            Text(article.subtitle)
                 .font(.subheadline)
                 .fontWeight(.medium)
                 .foregroundColor(.secondary)
             
-            Text(description)
+            Text(article.description)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .lineLimit(5)
@@ -118,7 +113,7 @@ struct FoundationNightSection: View {
                 .foregroundColor(.secondary)
         
         }
-        .padding([.leading, .bottom, .trailing], 16)
+        .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
@@ -238,6 +233,7 @@ struct BottomNavigation: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+.previewInterfaceOrientation(.portrait)
     }
 }
 
