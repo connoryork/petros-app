@@ -31,7 +31,9 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .background(Color.white)
                 }
+                .background(Color.white)
             } else {
                 // change
                 // Placeholder for other tabs
@@ -49,6 +51,8 @@ struct ContentView: View {
             
             BottomNavigation(selectedTab: $selectedTab)
         }
+        .background(Color.white)
+        .ignoresSafeArea(.all, edges: .all)
     }
     
     private var tabTitles: [String] {
@@ -78,7 +82,7 @@ struct TopBar: View {
             
             Spacer()
         }
-        .frame(height: 50)
+        .frame(maxWidth: .infinity, minHeight: 50)
         .background(Color(red: 0.7, green: 0.85, blue: 1.0))
         .ignoresSafeArea(.all, edges: .top)
     }
