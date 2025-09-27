@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab = 0
     
+    private let tabTitles = ["Home", "Recordings", "Calendar", "Files", "Something"]
+    
+    
     private let foundationArticles = ArticleFetcher.fetchFoundationNightArticles()
     
     var body: some View {
@@ -49,14 +52,10 @@ struct ContentView: View {
                 }
             }
             
-            BottomNavigation(selectedTab: $selectedTab)
+            BottomNavigation(selectedTab: $selectedTab, tabTitles: tabTitles)
         }
         .background(Color.white)
         .ignoresSafeArea(.all, edges: .all)
-    }
-    
-    private var tabTitles: [String] {
-        ["Home", "Recordings", "Calendar", "Files", "Something"]
     }
 }
 
@@ -199,10 +198,11 @@ struct RecordingsSection: View {
 
 struct BottomNavigation: View {
     @Binding var selectedTab: Int
+    var tabTitles: [String]
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(0..<5) { index in
+            ForEach(0..<tabTitles.count, id: \.self) { index in
                 Button(action: {
                     selectedTab = index
                 }) {
@@ -229,10 +229,6 @@ struct BottomNavigation: View {
                 .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
         )
         .ignoresSafeArea(.all, edges: .bottom)
-    }
-    
-    private var tabTitles: [String] {
-        ["Home", "Recordings", "Calendar", "Files", "Something"]
     }
 }
 
