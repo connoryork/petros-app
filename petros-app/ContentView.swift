@@ -10,7 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab = 0
     
-    private let tabTitles = ["Home", "Recordings", "Calendar", "Files", "Something"]
+    private let tabs = [
+        (title: "Home", image: "house"),
+        (title: "Listen", image: "waveform"),
+        (title: "Calendar", image: "calendar"),
+        (title: "Files", image: "folder"),
+        (title: "Something", image: "ellipsis")
+    ]
     
     
     private let foundationArticles = ArticleFetcher.fetchFoundationNightArticles()
@@ -42,7 +48,7 @@ struct ContentView: View {
                 // Placeholder for other tabs
                 VStack {
                     Spacer()
-                    Text("\(tabTitles[selectedTab]) Page")
+                    Text("\(tabs[selectedTab].title) Page")
                         .font(.title)
                         .foregroundColor(.secondary)
                     Text("Coming Soon")
@@ -52,7 +58,7 @@ struct ContentView: View {
                 }
             }
             
-            BottomNavigation(selectedTab: $selectedTab, tabTitles: tabTitles)
+            BottomNavigation(selectedTab: $selectedTab, tabs: tabs)
         }
         .background(Color.white)
         .ignoresSafeArea(.all, edges: .all)
@@ -198,21 +204,29 @@ struct RecordingsSection: View {
 
 struct BottomNavigation: View {
     @Binding var selectedTab: Int
-    var tabTitles: [String]
+    var tabs: [(title: String, image: String)]
     
     var body: some View {
-        HStack(spacing: 0) {
-            ForEach(0..<tabTitles.count, id: \.self) { index in
+        HStack(alignment: .bottom, spacing: 0.0) {
+            ForEach(0..<tabs.count, id: \.self) { index in
                 Button(action: {
                     selectedTab = index
                 }) {
                     VStack(spacing: 4) {
-                        Text(tabTitles[index])
+                        Image(systemName: tabs[index].image)
+                            .font(.system(size: 16))
+                            .foregroundColor(selectedTab == index ? .white : .primary)
+                            .frame(height: 16)
+                        
+                        Text(tabs[index].title)
                             .font(.caption)
                             .fontWeight(.medium)
                             .foregroundColor(selectedTab == index ? .white : .primary)
+                            .lineLimit(1)
                     }
                     .frame(maxWidth: .infinity)
+                    .padding(.top, 8)
+                    .padding(.bottom, 8)
                     .background(
                         Rectangle()
                             .fill(selectedTab == index ? Color(red: 0.1, green: 0.2, blue: 0.6) : Color(red: 0.7, green: 0.85, blue: 1.0))
@@ -221,7 +235,6 @@ struct BottomNavigation: View {
                 .buttonStyle(PlainButtonStyle())
             }
         }
-        .padding(.top, 8)
         .padding(.horizontal, 0)
         .padding(.bottom, 0)
         .background(
