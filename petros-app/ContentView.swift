@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab = 0
+    @State private var selectedArticle: Article? = nil
     
     private let tabs = [
         (title: "Home", image: "house"),
@@ -23,9 +24,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            TopBar()
+            TopBar(selectedArticle: $selectedArticle)
             
-            if selectedTab == 0 {
+            if let article = selectedArticle {
+                SpecificArticleView(article: article, selectedArticle: $selectedArticle)
+            } else if selectedTab == 0 {
                 ScrollView {
                     VStack(spacing: 0) {
                         RecordingsSection()
@@ -33,7 +36,7 @@ struct ContentView: View {
                         
                         ForEach(Array(foundationArticles.enumerated()), id: \.offset) { index, article in
                             VStack(spacing: 0) {
-                                ArticleView(article: article)
+                                ArticleView(article: article, selectedArticle: $selectedArticle)
                                 if index < foundationArticles.count - 1 {
                                     LineBreak()
                                 }
@@ -75,9 +78,22 @@ struct LineBreak: View {
 }
 
 struct TopBar: View {
+    @Binding var selectedArticle: Article?
+    
     var body: some View {
         HStack(alignment: .center) {
             HStack(spacing: 8) {
+                if selectedArticle != nil {
+                    Button(action: {
+                        selectedArticle = nil
+                    }) {
+                        Image(systemName: "arrow.left")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.trailing, 8)
+                }
+                
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -101,31 +117,37 @@ struct TopBar: View {
 
 struct ArticleView: View {
     let article: Article
+    @Binding var selectedArticle: Article?
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(article.title)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.primary)
-                .lineLimit(2)
-            
-            Text(article.subtitle)
-                .font(.subheadline)
-                .fontWeight(.medium)
-                .foregroundColor(.secondary)
+        Button(action: {
+            selectedArticle = article
+        }) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(article.title)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+                    .lineLimit(2)
+                
+                Text(article.subtitle)
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                    .foregroundColor(.secondary)
 
-            Text(article.description)
-                .font(.body)
-                .foregroundColor(.secondary)
-                .lineLimit(5)
-            
-            Text("Listen to the recording")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+                Text(article.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .lineLimit(5)
+                
+                Text("Listen to the recording")
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.horizontal, 16)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .buttonStyle(PlainButtonStyle())
     }
 }
 
@@ -242,6 +264,66 @@ struct BottomNavigation: View {
                 .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
         )
         .ignoresSafeArea(.all, edges: .bottom)
+    }
+}
+
+struct SpecificArticleView: View {
+    let article: Article
+    @Binding var selectedArticle: Article?
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                // Title
+                Text(article.title)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal, 16)
+                
+                // Subtitle
+                Text(article.subtitle)
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal, 16)
+                
+                LineBreak()
+                
+                // Body content
+                Text(article.body)
+                    .font(.body)
+                    .foregroundColor(.primary)
+                    .lineSpacing(4)
+                    .padding(.horizontal, 16)
+                
+                // Listen section
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Image(systemName: "play.circle.fill")
+                            .font(.title)
+                            .foregroundColor(Color(red: 0.1, green: 0.2, blue: 0.6))
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Listen to Recording")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.primary)
+                            
+                            Text("Tap to play the audio recording")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.vertical, 16)
+                .background(Color(red: 0.95, green: 0.97, blue: 1.0))
+            }
+        }
+        .background(Color.white)
     }
 }
 
