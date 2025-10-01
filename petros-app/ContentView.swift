@@ -21,6 +21,7 @@ struct ContentView: View {
     
     
     private let foundationArticles = ArticleFetcher.fetchFoundationNightArticles()
+    private let latestRecordings = RecordingsFetcher.fetchLatestRecordings()
     
     var body: some View {
         VStack(spacing: 0) {
@@ -31,7 +32,7 @@ struct ContentView: View {
             } else if selectedTab == 0 {
                 ScrollView {
                     VStack(spacing: 0) {
-                        RecordingsSection()
+                        RecordingsSection(recordings: latestRecordings)
                         LineBreak()
                         
                         ForEach(Array(foundationArticles.enumerated()), id: \.offset) { index, article in
@@ -153,6 +154,8 @@ struct ArticleView: View {
 
 // When you're ready to add real images, you can simply replace the Image(systemName: "play.circle.fill") with Image("your-image-name") and the layout will remain the same.
 struct RecordingsSection: View {
+    let recordings: [Recording]
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("LATEST RECORDINGS")
@@ -163,58 +166,23 @@ struct RecordingsSection: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
-                    // October Foundation Night Card
-                    VStack(alignment: .leading, spacing: 8) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
-                                .frame(width: 200, height: 120)
+                    ForEach(recordings, id: \.title) { recording in
+                        VStack(alignment: .leading, spacing: 8) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
+                                    .frame(width: 200, height: 120)
+                                
+                                Image(systemName: "play.circle.fill")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.white)
+                            }
                             
-                            Image(systemName: "play.circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
+                            Text(recording.title)
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.primary)
                         }
-                        
-                        Text("October Foundation Night")
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .foregroundColor(.primary)
-                    }
-                    
-                    // September Card
-                    VStack(alignment: .leading, spacing: 8) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
-                                .frame(width: 200, height: 120)
-                            
-                            Image(systemName: "play.circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                        }
-                        
-                        Text("September Foundation Night")
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .foregroundColor(.primary)
-                    }
-                    
-                    // August Card
-                    VStack(alignment: .leading, spacing: 8) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
-                                .frame(width: 200, height: 120)
-                            
-                            Image(systemName: "play.circle.fill")
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                        }
-                        
-                        Text("August Foundation Night")
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .foregroundColor(.primary)
                     }
                 }
                 .padding(.horizontal, 16)
