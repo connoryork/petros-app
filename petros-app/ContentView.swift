@@ -169,13 +169,21 @@ struct RecordingsSection: View {
                     ForEach(recordings, id: \.title) { recording in
                         VStack(alignment: .leading, spacing: 8) {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color(red: 0.7, green: 0.85, blue: 1.0))
+                                Image(recording.image)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 200, height: 120)
+                                    .clipped()
+                                    .cornerRadius(8)
                                 
                                 Image(systemName: "play.circle.fill")
                                     .font(.system(size: 40))
                                     .foregroundColor(.white)
+                                    .background(
+                                        Circle()
+                                            .fill(Color.black.opacity(0.3))
+                                            .frame(width: 50, height: 50)
+                                    )
                             }
                             
                             Text(recording.title)
