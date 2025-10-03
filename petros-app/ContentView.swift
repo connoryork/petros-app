@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var selectedTab = 0
     @State private var selectedArticle: Article? = nil
+    @State private var selectedRecording: Recording? = nil
+    @State private var isPlaying = false
     
     private let tabs = [
         (title: "Home", image: "house"),
@@ -32,7 +34,7 @@ struct ContentView: View {
             } else if selectedTab == 0 {
                 ScrollView {
                     VStack(spacing: 0) {
-                        RecordingsSection(recordings: latestRecordings)
+                        RecordingsSection(recordings: latestRecordings, selectedRecording: $selectedRecording, isPlaying: $isPlaying)
                         LineBreak()
                         
                         ForEach(Array(foundationArticles.enumerated()), id: \.offset) { index, article in
@@ -60,6 +62,18 @@ struct ContentView: View {
                         .foregroundColor(.secondary)
                     Spacer()
                 }
+            }
+            
+            // Media Player Bar (shown when a recording is selected)
+            if let recording = selectedRecording {
+                MediaPlayerBar(
+                    recording: recording,
+                    isPlaying: $isPlaying,
+                    onClose: {
+                        selectedRecording = nil
+                        isPlaying = false
+                    }
+                )
             }
             
             BottomNavigation(selectedTab: $selectedTab, tabs: tabs)
@@ -152,9 +166,10 @@ struct ArticleView: View {
     }
 }
 
-// When you're ready to add real images, you can simply replace the Image(systemName: "play.circle.fill") with Image("your-image-name") and the layout will remain the same.
 struct RecordingsSection: View {
     let recordings: [Recording]
+    @Binding var selectedRecording: Recording?
+    @Binding var isPlaying: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -167,36 +182,85 @@ struct RecordingsSection: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(recordings, id: \.title) { recording in
-                        VStack(alignment: .leading, spacing: 8) {
-                            ZStack {
-                                Image(recording.image)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 200, height: 120)
-                                    .clipped()
-                                    .cornerRadius(8)
+                        Button(action: {
+                            selectedRecording = recording
+                            isPlaying = true
+                        }) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                ZStack {
+                                    Image(recording.image)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 200, height: 120)
+                                        .clipped()
+                                        .cornerRadius(8)
+                                    
+                                    Image(systemName: "play.circle.fill")
+                                        .font(.system(size: 40))
+                                        .foregroundColor(.white)
+                                        .background(
+                                            Circle()
+                                                .fill(Color.black.opacity(0.3))
+                                                .frame(width: 50, height: 50)
+                                        )
+                                }
                                 
-                                Image(systemName: "play.circle.fill")
-                                    .font(.system(size: 40))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        Circle()
-                                            .fill(Color.black.opacity(0.3))
-                                            .frame(width: 50, height: 50)
-                                    )
+                                Text(recording.title)
+                                    .font(.subheadline)
+                                    .fontWeight(.medium)
+                                    .foregroundColor(.primary)
                             }
-                            
-                            Text(recording.title)
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                                .foregroundColor(.primary)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding(.horizontal, 16)
             }
         }
         .padding(.vertical, 16)
+    }
+}
+
+struct MediaPlayerBar: View {
+    let recording: Recording
+    @Binding var isPlaying: Bool
+    let onClose: () -> Void
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            // Play/Pause Button
+            Button(action: {
+                isPlaying.toggle()
+            }) {
+                Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                    .font(.title2)
+                    .foregroundColor(.white)
+            }
+            
+            // Recording Title
+            Text(recording.title)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(.white)
+                .lineLimit(1)
+                .truncationMode(.tail)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            // Close Button
+            Button(action: {
+                onClose()
+            }) {
+                Image(systemName: "xmark")
+                    .font(.title3)
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(
+            Rectangle()
+                .fill(Color(red: 0.1, green: 0.2, blue: 0.6))
+        )
     }
 }
 
