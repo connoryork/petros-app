@@ -4,6 +4,7 @@
 
 # Ignored images for now as they are proprietary 
 /images
+/recordings
 petros-app/Assets.xcassets/
 
 ## User settings
