@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     @State private var selectedTab = 0
     @State private var selectedArticle: Article? = nil
     @State private var selectedRecording: Recording? = nil
     @State private var isPlaying = false
+    @State private var audioPlayer: AVAudioPlayer?
     
     private let tabs = [
         (title: "Home", image: "house"),
@@ -24,6 +26,36 @@ struct ContentView: View {
     
     private let foundationArticles = ArticleFetcher.fetchFoundationNightArticles()
     private let latestRecordings = RecordingsFetcher.fetchLatestRecordings()
+    
+    private func setupAudioPlayer(for recording: Recording) {
+        guard let url = Bundle.main.url(forResource: recording.recordingId.replacingOccurrences(of: ".m4a", with: ""), withExtension: "m4a") else {
+            print("Could not find audio file: \(recording.recordingId)")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+        } catch {
+            print("Error setting up audio player: \(error)")
+        }
+    }
+    
+    private func playAudio() {
+        audioPlayer?.play()
+        isPlaying = true
+    }
+    
+    private func pauseAudio() {
+        audioPlayer?.pause()
+        isPlaying = false
+    }
+    
+    private func stopAudio() {
+        audioPlayer?.stop()
+        audioPlayer?.currentTime = 0
+        isPlaying = false
+    }
     
     var body: some View {
         VStack(spacing: 0) {
@@ -69,11 +101,21 @@ struct ContentView: View {
                 MediaPlayerBar(
                     recording: recording,
                     isPlaying: $isPlaying,
+                    onPlayPause: {
+                        if isPlaying {
+                            pauseAudio()
+                        } else {
+                            playAudio()
+                        }
+                    },
                     onClose: {
+                        stopAudio()
                         selectedRecording = nil
-                        isPlaying = false
                     }
                 )
+                .onAppear {
+                    setupAudioPlayer(for: recording)
+                }
             }
             
             BottomNavigation(selectedTab: $selectedTab, tabs: tabs)
@@ -224,13 +266,14 @@ struct RecordingsSection: View {
 struct MediaPlayerBar: View {
     let recording: Recording
     @Binding var isPlaying: Bool
+    let onPlayPause: () -> Void
     let onClose: () -> Void
     
     var body: some View {
         HStack(spacing: 16) {
             // Play/Pause Button
             Button(action: {
-                isPlaying.toggle()
+                onPlayPause()
             }) {
                 Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
                     .font(.title2)

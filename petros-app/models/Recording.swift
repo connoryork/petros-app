@@ -12,4 +12,5 @@ struct Recording {
     let date: String
     let description: String
     let image: String
+    let recordingId: String
 }

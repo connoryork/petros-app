@@ -18,6 +18,7 @@
 		11753A782E861BA3003B055D /* petros_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A772E861BA3003B055D /* petros_appTests.swift */; };
 		11753A822E861BA3003B055D /* petros_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A812E861BA3003B055D /* petros_appUITests.swift */; };
 		11753A842E861BA3003B055D /* petros_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A832E861BA3003B055D /* petros_appUITestsLaunchTests.swift */; };
+		117EFD962EB2F858006CC1AD /* recording.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 117EFD952EB2F857006CC1AD /* recording.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		11753A7D2E861BA3003B055D /* petros-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "petros-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11753A812E861BA3003B055D /* petros_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITests.swift; sourceTree = "<group>"; };
 		11753A832E861BA3003B055D /* petros_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		117EFD952EB2F857006CC1AD /* recording.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = recording.m4a; path = recordings/recording.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		11753A5A2E861B9F003B055D = {
 			isa = PBXGroup;
 			children = (
+				117EFD952EB2F857006CC1AD /* recording.m4a */,
 				11753A652E861B9F003B055D /* petros-app */,
 				11753A762E861BA3003B055D /* petros-appTests */,
 				11753A802E861BA3003B055D /* petros-appUITests */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11753A6E2E861BA2003B055D /* Preview Assets.xcassets in Resources */,
+				117EFD962EB2F858006CC1AD /* recording.m4a in Resources */,
 				11753A6B2E861BA2003B055D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
