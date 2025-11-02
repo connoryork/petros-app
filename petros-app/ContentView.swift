@@ -244,9 +244,14 @@ struct RecordingsSection: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
                     ForEach(recordings, id: \.title) { recording in
+                        let isSelected = selectedRecording == recording
+                        
                         Button(action: {
-                            selectedRecording = recording
-                            isPlaying = true
+                            // Only allow action if not selected
+                            if !isSelected {
+                                selectedRecording = recording
+                                isPlaying = true
+                            }
                         }) {
                             VStack(alignment: .leading, spacing: 8) {
                                 ZStack {
@@ -256,24 +261,47 @@ struct RecordingsSection: View {
                                         .frame(width: 200, height: 120)
                                         .clipped()
                                         .cornerRadius(8)
+                                        .grayscale(isSelected ? 0.8 : 0)
+                                        .opacity(isSelected ? 0.6 : 1.0)
                                     
-                                    Image(systemName: "play.circle.fill")
-                                        .font(.system(size: 40))
-                                        .foregroundColor(.white)
+                                    if isSelected {
+                                        // Show "Playing" text when selected
+                                        VStack {
+                                            Image(systemName: "waveform")
+                                                .font(.system(size: 24))
+                                                .foregroundColor(.white)
+                                            Text("Playing")
+                                                .font(.subheadline)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                        }
+                                        .padding(8)
                                         .background(
-                                            Circle()
-                                                .fill(Color.black.opacity(0.3))
-                                                .frame(width: 50, height: 50)
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color.black.opacity(0.6))
                                         )
+                                    } else {
+                                        // Show play button when not selected
+                                        Image(systemName: "play.circle.fill")
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.white)
+                                            .background(
+                                                Circle()
+                                                    .fill(Color.black.opacity(0.3))
+                                                    .frame(width: 50, height: 50)
+                                            )
+                                    }
                                 }
                                 
                                 Text(recording.title)
                                     .font(.subheadline)
                                     .fontWeight(.medium)
                                     .foregroundColor(.primary)
+                                    .opacity(isSelected ? 0.6 : 1.0)
                             }
                         }
                         .buttonStyle(PlainButtonStyle())
+                        .disabled(isSelected)
                     }
                 }
                 .padding(.horizontal, 16)
