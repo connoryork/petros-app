@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recording {
+struct Recording: Equatable {
     let title: String
     let date: String
     let description: String
