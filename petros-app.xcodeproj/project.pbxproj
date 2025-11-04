@@ -19,6 +19,8 @@
 		11753A822E861BA3003B055D /* petros_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A812E861BA3003B055D /* petros_appUITests.swift */; };
 		11753A842E861BA3003B055D /* petros_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11753A832E861BA3003B055D /* petros_appUITestsLaunchTests.swift */; };
 		117EFD962EB2F858006CC1AD /* recording.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 117EFD952EB2F857006CC1AD /* recording.m4a */; };
+		118072352EB990C700B3BA59 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118072342EB990C600B3BA59 /* CalendarEvent.swift */; };
+		118072372EB990D200B3BA59 /* CalendarEventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		11753A812E861BA3003B055D /* petros_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITests.swift; sourceTree = "<group>"; };
 		11753A832E861BA3003B055D /* petros_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petros_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		117EFD952EB2F857006CC1AD /* recording.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = recording.m4a; path = recordings/recording.m4a; sourceTree = "<group>"; };
+		118072342EB990C600B3BA59 /* CalendarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				1155451A2E8CC5CA00DF1009 /* Recording.swift */,
 				1123C8512E86390A00CB38C0 /* Article.swift */,
+				118072342EB990C600B3BA59 /* CalendarEvent.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1155451C2E8CC5E000DF1009 /* RecordingsFetcher.swift */,
+				118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */,
 				1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */,
 			);
 			path = fetchers;
@@ -291,10 +297,12 @@
 			files = (
 				1123C8532E86390A00CB38C0 /* Article.swift in Sources */,
 				11753A692E861B9F003B055D /* ContentView.swift in Sources */,
+				118072372EB990D200B3BA59 /* CalendarEventFetcher.swift in Sources */,
 				11753A672E861B9F003B055D /* petros_appApp.swift in Sources */,
 				1123C8522E86390A00CB38C0 /* ArticleFetcher.swift in Sources */,
 				1155451B2E8CC5CA00DF1009 /* Recording.swift in Sources */,
 				1155451D2E8CC5E000DF1009 /* RecordingsFetcher.swift in Sources */,
+				118072352EB990C700B3BA59 /* CalendarEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,7 @@ struct ContentView: View {
     
     private let foundationArticles = ArticleFetcher.fetchFoundationNightArticles()
     private let latestRecordings = RecordingsFetcher.fetchLatestRecordings()
+    private let calendarEvents = CalendarEventFetcher.fetchUpcomingEvents()
     
     private func setupAudioPlayer(for recording: Recording) {
         // If we're already playing this recording, no need to recreate the player
@@ -98,6 +99,8 @@ struct ContentView: View {
                     .background(Color.white)
                 }
                 .background(Color.white)
+            } else if selectedTab == 2 {
+                CalendarView(events: calendarEvents)
             } else {
                 // change
                 // Placeholder for other tabs
@@ -455,6 +458,61 @@ struct SpecificArticleView: View {
             }
         }
         .background(Color.white)
+    }
+}
+
+struct CalendarView: View {
+    let events: [CalendarEvent]
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 0) {
+                ForEach(Array(events.enumerated()), id: \.element.id) { index, event in
+                    VStack(spacing: 0) {
+                        CalendarEventView(event: event)
+                        if index < events.count - 1 {
+                            LineBreak()
+                        }
+                    }
+                }
+            }
+            .background(Color.white)
+        }
+        .background(Color.white)
+    }
+}
+
+struct CalendarEventView: View {
+    let event: CalendarEvent
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        return formatter
+    }()
+    
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            // Left side: Name and address
+            VStack(alignment: .leading, spacing: 4) {
+                Text(event.name)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+                
+                Text(event.address)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            // Right side: Date
+            Text(dateFormatter.string(from: event.date))
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(.primary)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 16)
     }
 }
 
