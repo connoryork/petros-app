@@ -21,7 +21,7 @@ struct ContentView: View {
         (title: "Listen", image: "waveform"),
         (title: "Calendar", image: "calendar"),
         (title: "Files", image: "folder"),
-        (title: "Something", image: "ellipsis")
+        (title: "Settings", image: "ellipsis")
     ]
     
     
