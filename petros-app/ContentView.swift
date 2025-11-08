@@ -14,7 +14,6 @@ struct ContentView: View {
     @State private var selectedRecording: Recording? = nil
     @State private var isPlaying = false
     @State private var audioPlayer: AVAudioPlayer?
-    @State private var currentRecordingId: String? = nil
     
     private let tabs = [
         (title: "Home", image: "house"),
@@ -31,7 +30,7 @@ struct ContentView: View {
     
     private func setupAudioPlayer(for recording: Recording) {
         // If we're already playing this recording, no need to recreate the player
-        if currentRecordingId == recording.recordingId, let player = audioPlayer {
+        if selectedRecording?.recordingId == recording.recordingId, let player = audioPlayer {
             // Same recording - just restart from beginning if needed
             player.currentTime = 0
             playAudio()
@@ -41,7 +40,6 @@ struct ContentView: View {
         // Different recording - stop and recreate the player
         audioPlayer?.stop()
         audioPlayer = nil
-        currentRecordingId = recording.recordingId
         
         guard let url = Bundle.main.url(forResource: recording.recordingId.replacingOccurrences(of: ".m4a", with: ""), withExtension: "m4a") else {
             print("Could not find audio file: \(recording.recordingId)")
@@ -71,7 +69,6 @@ struct ContentView: View {
         audioPlayer?.stop()
         audioPlayer?.currentTime = 0
         isPlaying = false
-        currentRecordingId = nil
         selectedRecording = nil
     }
     
