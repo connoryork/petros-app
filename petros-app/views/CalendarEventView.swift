@@ -18,7 +18,7 @@ struct CalendarEventView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             // Left side: Name and address
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(event.name)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -37,7 +37,7 @@ struct CalendarEventView: View {
                 .foregroundColor(.primary)
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, 16)
+        .padding(.vertical, 8)
     }
 }
 

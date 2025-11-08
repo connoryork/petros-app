@@ -17,7 +17,7 @@ struct CalendarView: View {
                     VStack(spacing: 0) {
                         CalendarEventView(event: event)
                         if index < events.count - 1 {
-                            LineBreak()
+                            LineBreak(verticalPadding: 0)
                         }
                     }
                 }
