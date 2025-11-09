@@ -99,17 +99,7 @@ struct ContentView: View {
             } else if selectedTab == 1 {
                 CalendarView(events: calendarEvents)
             } else {
-                // Placeholder for other tabs
-                VStack {
-                    Spacer()
-                    Text("\(tabs[selectedTab].title)")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                    Text("Coming Soon")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                    Spacer()
-                }
+                TBDView(title: tabs[selectedTab].title)
             }
             
             // Media Player Bar (shown when a recording is selected)

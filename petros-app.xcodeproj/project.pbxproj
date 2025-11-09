@@ -21,6 +21,7 @@
 		117EFD962EB2F858006CC1AD /* recording.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 117EFD952EB2F857006CC1AD /* recording.m4a */; };
 		118072352EB990C700B3BA59 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118072342EB990C600B3BA59 /* CalendarEvent.swift */; };
 		118072372EB990D200B3BA59 /* CalendarEventFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */; };
+		11975E7F2EC0C372007E4A77 /* TBDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11975E7E2EC0C372007E4A77 /* TBDView.swift */; };
 		11A1B1A12EA1B1A100A1B1A1 /* LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1A02EA1B1A100A1B1A1 /* LineBreak.swift */; };
 		11A1B1A32EA1B1A200A1B1A1 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1A22EA1B1A200A1B1A1 /* TopBar.swift */; };
 		11A1B1A52EA1B1A300A1B1A1 /* BottomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1A42EA1B1A300A1B1A1 /* BottomNavigation.swift */; };
@@ -67,6 +68,7 @@
 		117EFD952EB2F857006CC1AD /* recording.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = recording.m4a; path = recordings/recording.m4a; sourceTree = "<group>"; };
 		118072342EB990C600B3BA59 /* CalendarEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventFetcher.swift; sourceTree = "<group>"; };
+		11975E7E2EC0C372007E4A77 /* TBDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBDView.swift; sourceTree = "<group>"; };
 		11A1B1A02EA1B1A100A1B1A1 /* LineBreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBreak.swift; sourceTree = "<group>"; };
 		11A1B1A22EA1B1A200A1B1A1 /* TopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		11A1B1A42EA1B1A300A1B1A1 /* BottomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomNavigation.swift; sourceTree = "<group>"; };
@@ -121,22 +123,6 @@
 				1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */,
 			);
 			path = fetchers;
-			sourceTree = "<group>";
-		};
-		11A1B1B22EA1B1AA00A1B1A1 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				11A1B1A02EA1B1A100A1B1A1 /* LineBreak.swift */,
-				11A1B1A22EA1B1A200A1B1A1 /* TopBar.swift */,
-				11A1B1A42EA1B1A300A1B1A1 /* BottomNavigation.swift */,
-				11A1B1A62EA1B1A400A1B1A1 /* ArticleView.swift */,
-				11A1B1A82EA1B1A500A1B1A1 /* SpecificArticleView.swift */,
-				11A1B1AA2EA1B1A600A1B1A1 /* RecordingsSection.swift */,
-				11A1B1AC2EA1B1A700A1B1A1 /* MediaPlayerBar.swift */,
-				11A1B1AE2EA1B1A800A1B1A1 /* CalendarView.swift */,
-				11A1B1B02EA1B1A900A1B1A1 /* CalendarEventView.swift */,
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		11753A5A2E861B9F003B055D = {
@@ -197,6 +183,23 @@
 				11753A832E861BA3003B055D /* petros_appUITestsLaunchTests.swift */,
 			);
 			path = "petros-appUITests";
+			sourceTree = "<group>";
+		};
+		11A1B1B22EA1B1AA00A1B1A1 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				11975E7E2EC0C372007E4A77 /* TBDView.swift */,
+				11A1B1A02EA1B1A100A1B1A1 /* LineBreak.swift */,
+				11A1B1A22EA1B1A200A1B1A1 /* TopBar.swift */,
+				11A1B1A42EA1B1A300A1B1A1 /* BottomNavigation.swift */,
+				11A1B1A62EA1B1A400A1B1A1 /* ArticleView.swift */,
+				11A1B1A82EA1B1A500A1B1A1 /* SpecificArticleView.swift */,
+				11A1B1AA2EA1B1A600A1B1A1 /* RecordingsSection.swift */,
+				11A1B1AC2EA1B1A700A1B1A1 /* MediaPlayerBar.swift */,
+				11A1B1AE2EA1B1A800A1B1A1 /* CalendarView.swift */,
+				11A1B1B02EA1B1A900A1B1A1 /* CalendarEventView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +340,7 @@
 				1123C8522E86390A00CB38C0 /* ArticleFetcher.swift in Sources */,
 				1155451B2E8CC5CA00DF1009 /* Recording.swift in Sources */,
 				1155451D2E8CC5E000DF1009 /* RecordingsFetcher.swift in Sources */,
+				11975E7F2EC0C372007E4A77 /* TBDView.swift in Sources */,
 				118072352EB990C700B3BA59 /* CalendarEvent.swift in Sources */,
 				11A1B1A12EA1B1A100A1B1A1 /* LineBreak.swift in Sources */,
 				11A1B1A32EA1B1A200A1B1A1 /* TopBar.swift in Sources */,
