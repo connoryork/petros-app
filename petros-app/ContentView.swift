@@ -18,9 +18,9 @@ struct ContentView: View {
     private let tabs = [
         (title: "Home", image: "house"),
         (title: "Calendar", image: "calendar"),
-        (title: "Listen", image: "waveform"),
-        (title: "Files", image: "folder"),
-        (title: "Settings", image: "ellipsis")
+        (title: "TBD", image: "ellipsis"),
+        (title: "TBD", image: "ellipsis"),
+        (title: "TBD", image: "ellipsis")
     ]
     
     
@@ -102,7 +102,7 @@ struct ContentView: View {
                 // Placeholder for other tabs
                 VStack {
                     Spacer()
-                    Text("\(tabs[selectedTab].title) Page")
+                    Text("\(tabs[selectedTab].title)")
                         .font(.title)
                         .foregroundColor(.secondary)
                     Text("Coming Soon")
