@@ -17,8 +17,8 @@ struct ContentView: View {
     
     private let tabs = [
         (title: "Home", image: "house"),
-        (title: "Listen", image: "waveform"),
         (title: "Calendar", image: "calendar"),
+        (title: "Listen", image: "waveform"),
         (title: "Files", image: "folder"),
         (title: "Settings", image: "ellipsis")
     ]
@@ -96,7 +96,7 @@ struct ContentView: View {
                     .background(Color.white)
                 }
                 .background(Color.white)
-            } else if selectedTab == 2 {
+            } else if selectedTab == 1 {
                 CalendarView(events: calendarEvents)
             } else {
                 // Placeholder for other tabs
