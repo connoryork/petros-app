@@ -79,23 +79,13 @@ struct ContentView: View {
             if let article = selectedArticle {
                 SpecificArticleView(article: article, selectedArticle: $selectedArticle)
             } else if selectedTab == 0 {
-                ScrollView {
-                    VStack(spacing: 0) {
-                        RecordingsSection(recordings: latestRecordings, selectedRecording: $selectedRecording, isPlaying: $isPlaying)
-                        LineBreak()
-                        
-                        ForEach(Array(foundationArticles.enumerated()), id: \.offset) { index, article in
-                            VStack(spacing: 0) {
-                                ArticleView(article: article, selectedArticle: $selectedArticle)
-                                if index < foundationArticles.count - 1 {
-                                    LineBreak()
-                                }
-                            }
-                        }
-                    }
-                    .background(Color.white)
-                }
-                .background(Color.white)
+                HomeView(
+                    recordings: latestRecordings,
+                    foundationArticles: foundationArticles,
+                    selectedRecording: $selectedRecording,
+                    isPlaying: $isPlaying,
+                    selectedArticle: $selectedArticle
+                )
             } else if selectedTab == 1 {
                 CalendarView(events: calendarEvents)
             } else {
