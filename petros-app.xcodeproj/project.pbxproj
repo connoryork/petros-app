@@ -32,6 +32,11 @@
 		11A1B1AD2EA1B1A700A1B1A1 /* MediaPlayerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1AC2EA1B1A700A1B1A1 /* MediaPlayerBar.swift */; };
 		11A1B1AF2EA1B1A800A1B1A1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1AE2EA1B1A800A1B1A1 /* CalendarView.swift */; };
 		11A1B1B12EA1B1A900A1B1A1 /* CalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A1B1B02EA1B1A900A1B1A1 /* CalendarEventView.swift */; };
+		11C1D1042F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D1052F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift */; };
+		11C1D1002F5F2B1A00A1B1C0 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = 11C1D1012F5F2B1A00A1B1C0 /* SwiftJWT */; };
+		11C1D1072F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */; };
+		11C1D10A2F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */; };
+		11C1D10C2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +85,10 @@
 		11A1B1AC2EA1B1A700A1B1A1 /* MediaPlayerBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerBar.swift; sourceTree = "<group>"; };
 		11A1B1AE2EA1B1A800A1B1A1 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		11A1B1B02EA1B1A900A1B1A1 /* CalendarEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarEventView.swift; sourceTree = "<group>"; };
+		11C1D1052F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAuthService.swift; sourceTree = "<group>"; };
+		11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarModels.swift; sourceTree = "<group>"; };
+		11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPIClient.swift; sourceTree = "<group>"; };
+		11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11C1D1002F5F2B1A00A1B1C0 /* SwiftJWT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +123,7 @@
 				1155451A2E8CC5CA00DF1009 /* Recording.swift */,
 				1123C8512E86390A00CB38C0 /* Article.swift */,
 				118072342EB990C600B3BA59 /* CalendarEvent.swift */,
+				11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -122,6 +133,8 @@
 			children = (
 				1155451C2E8CC5E000DF1009 /* RecordingsFetcher.swift */,
 				118072362EB990D200B3BA59 /* CalendarEventFetcher.swift */,
+				11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */,
+				11C1D1052F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift */,
 				1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */,
 			);
 			path = fetchers;
@@ -151,6 +164,7 @@
 		11753A652E861B9F003B055D /* petros-app */ = {
 			isa = PBXGroup;
 			children = (
+				11C1D10D2F5F2B1A00A1B1C0 /* Config */,
 				1123C8552E86396900CB38C0 /* fetchers */,
 				1123C8542E86394700CB38C0 /* models */,
 				11A1B1B22EA1B1AA00A1B1A1 /* views */,
@@ -205,6 +219,14 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		11C1D10D2F5F2B1A00A1B1C0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +241,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			packageProductDependencies = (
+				11C1D1012F5F2B1A00A1B1C0 /* SwiftJWT */,
 			);
 			name = "petros-app";
 			productName = "petros-app";
@@ -296,6 +321,9 @@
 			productRefGroup = 11753A642E861B9F003B055D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
+			packageReferences = (
+				11C1D1022F5F2B1A00A1B1C0 /* XCRemoteSwiftPackageReference "SwiftJWT" */,
+			);
 			targets = (
 				11753A622E861B9F003B055D /* petros-app */,
 				11753A722E861BA3003B055D /* petros-appTests */,
@@ -338,6 +366,10 @@
 			files = (
 				1123C8532E86390A00CB38C0 /* Article.swift in Sources */,
 				11753A692E861B9F003B055D /* ContentView.swift in Sources */,
+				11C1D1042F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift in Sources */,
+				11C1D10A2F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift in Sources */,
+				11C1D10C2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift in Sources */,
+				11C1D1072F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift in Sources */,
 				118072372EB990D200B3BA59 /* CalendarEventFetcher.swift in Sources */,
 				11753A672E861B9F003B055D /* petros_appApp.swift in Sources */,
 				1123C8522E86390A00CB38C0 /* ArticleFetcher.swift in Sources */,
@@ -675,6 +707,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11C1D1022F5F2B1A00A1B1C0 /* XCRemoteSwiftPackageReference "SwiftJWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-JWT.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11C1D1012F5F2B1A00A1B1C0 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11C1D1022F5F2B1A00A1B1C0 /* XCRemoteSwiftPackageReference "SwiftJWT" */;
+			productName = SwiftJWT;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 11753A5B2E861B9F003B055D /* Project object */;
 }
