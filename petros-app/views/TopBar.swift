@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopBar: View {
     @Binding var selectedArticle: Article?
-    
+
     var body: some View {
         HStack(alignment: .center) {
             HStack(spacing: 8) {
@@ -23,7 +23,7 @@ struct TopBar: View {
                     }
                     .padding(.trailing, 8)
                 }
-                
+
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -40,7 +40,5 @@ struct TopBar: View {
         }
         .frame(maxWidth: .infinity, minHeight: 50)
         .background(Color(red: 0.7, green: 0.85, blue: 1.0))
-        .ignoresSafeArea(.all, edges: .top)
     }
 }
-
