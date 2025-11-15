@@ -10,14 +10,13 @@ import Foundation
 struct CalendarEventsFetchResult {
     let events: [CalendarEvent]
     let error: Error?
-    let usedFallback: Bool
 
     static func success(_ events: [CalendarEvent]) -> CalendarEventsFetchResult {
-        CalendarEventsFetchResult(events: events, error: nil, usedFallback: false)
+        CalendarEventsFetchResult(events: events, error: nil)
     }
 
-    static func fallback(events: [CalendarEvent], error: Error?) -> CalendarEventsFetchResult {
-        CalendarEventsFetchResult(events: events, error: error, usedFallback: true)
+    static func failure(error: Error) -> CalendarEventsFetchResult {
+        CalendarEventsFetchResult(events: [], error: error)
     }
 }
 
@@ -61,61 +60,9 @@ class CalendarEventFetcher {
             print("[CalendarEventFetcher] Received \(events.count) events from API; \(sorted.count) remain after sorting/filtering")
             return .success(sorted)
         } catch {
-            let fallback = fallbackEvents()
             print("[CalendarEventFetcher] Failed to fetch Google Calendar events: \(error.localizedDescription)")
-            print("[CalendarEventFetcher] Using fallback events count=\(fallback.count)")
-            return .fallback(events: fallback, error: error)
+            return .failure(error: error)
         }
-    }
-
-    private func fallbackEvents() -> [CalendarEvent] {
-        var events: [CalendarEvent] = []
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        let firstFridayDates = [
-            "2025-11-07",
-            "2025-12-05",
-            "2026-01-02",
-            "2026-02-06",
-            "2026-03-06",
-            "2026-04-03",
-            "2026-05-01"
-        ]
-
-        for dateString in firstFridayDates {
-            if let date = dateFormatter.date(from: dateString) {
-                events.append(CalendarEvent(
-                    name: "First Friday Adoration",
-                    date: date,
-                    address: "St. Peter the Apostle Parish"
-                ))
-            }
-        }
-
-        let foundationNightDates = [
-            "2025-11-18",
-            "2025-12-16",
-            "2026-01-20",
-            "2026-02-17",
-            "2026-03-17",
-            "2026-04-21",
-            "2026-05-19"
-        ]
-
-        for dateString in foundationNightDates {
-            if let date = dateFormatter.date(from: dateString) {
-                events.append(CalendarEvent(
-                    name: "Foundation Night",
-                    date: date,
-                    address: "St. Peter's Parish Hall"
-                ))
-            }
-        }
-
-        events.sort { $0.date < $1.date }
-        print("[CalendarEventFetcher] Generated \(events.count) fallback events")
-        return events
     }
 }
 

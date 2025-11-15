@@ -11,7 +11,6 @@ struct CalendarView: View {
     let events: [CalendarEvent]
     let isLoading: Bool
     let errorMessage: String?
-    let usedFallback: Bool
     let onRetry: () -> Void
 
     var body: some View {
@@ -38,11 +37,6 @@ struct CalendarView: View {
                     )
                     .padding(.top, 32)
                 } else {
-                    if usedFallback {
-                        FallbackBanner(onRetry: onRetry)
-                            .padding(.horizontal, 16)
-                    }
-
                     VStack(spacing: 0) {
                         ForEach(Array(events.enumerated()), id: \.element.id) { index, event in
                             VStack(spacing: 0) {
@@ -100,33 +94,3 @@ private struct CalendarStateMessage: View {
     }
 }
 
-private struct FallbackBanner: View {
-    let onRetry: () -> Void
-
-    var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .foregroundColor(.yellow)
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Offline Schedule")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                Text("Showing saved events because Google Calendar is unavailable.")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-            }
-
-            Spacer()
-
-            Button("Retry") {
-                onRetry()
-            }
-            .font(.footnote)
-            
-        }
-        .padding(16)
-        .background(Color(UIColor.systemYellow).opacity(0.15))
-        .cornerRadius(14)
-    }
-}

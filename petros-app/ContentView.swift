@@ -18,7 +18,6 @@ struct ContentView: View {
     @State private var calendarEvents: [CalendarEvent] = []
     @State private var isCalendarLoading = false
     @State private var calendarErrorMessage: String? = nil
-    @State private var usedFallbackEvents = false
 
     private let tabs = [
         (title: "Home", image: "house"),
@@ -94,10 +93,9 @@ struct ContentView: View {
 
         await MainActor.run {
             calendarEvents = result.events
-            usedFallbackEvents = result.usedFallback
             isCalendarLoading = false
 
-            if let error = result.error, result.usedFallback {
+            if let error = result.error {
                 calendarErrorMessage = error.localizedDescription
             } else if result.events.isEmpty {
                 calendarErrorMessage = "No upcoming events found."
@@ -132,7 +130,6 @@ struct ContentView: View {
                     events: calendarEvents,
                     isLoading: isCalendarLoading,
                     errorMessage: calendarErrorMessage,
-                    usedFallback: usedFallbackEvents,
                     onRetry: refreshCalendarEvents
                 )
             } else {
