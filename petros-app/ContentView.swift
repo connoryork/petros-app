@@ -166,7 +166,7 @@ struct ContentView: View {
             BottomNavigation(selectedTab: $selectedTab, tabs: tabs)
         }
         .background(Color.white)
-        .ignoresSafeArea(.all, edges: .all)
+        .ignoresSafeArea(.all, edges: .bottom)
         .task {
             await loadCalendarEvents()
         }
