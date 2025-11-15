@@ -7,6 +7,9 @@
 /recordings
 petros-app/Assets.xcassets/
 
+# secret api keys
+/secrets
+
 ## User settings
 xcuserdata/
 
