@@ -16,7 +16,7 @@ struct CalendarEventsFetchResult {
         CalendarEventsFetchResult(events: events, error: nil, usedFallback: false)
     }
 
-static func fallback(events: [CalendarEvent], error: Error?) -> CalendarEventsFetchResult {
+    static func fallback(events: [CalendarEvent], error: Error?) -> CalendarEventsFetchResult {
         CalendarEventsFetchResult(events: events, error: error, usedFallback: true)
     }
 }
@@ -40,9 +40,11 @@ class CalendarEventFetcher {
     }
 
     func fetchUpcomingEvents() async -> CalendarEventsFetchResult {
+        print("[CalendarEventFetcher] Starting fetchUpcomingEvents at \(Date())")
+
         do {
             let options = GoogleCalendarListEventsOptions(
-                calendarID: calendarConfig.calendarID,
+                calendarID: GoogleCalendarConfig.calendarID,
                 timeMin: Date(),
                 timeMax: calendarConfig.timeMaxDate(from: Date()),
                 maxResults: calendarConfig.maxResults,
@@ -51,12 +53,17 @@ class CalendarEventFetcher {
                 pageToken: nil
             )
 
+            print("[CalendarEventFetcher] Prepared options for calendarID=\(options.calendarID) maxResults=\(options.maxResults)")
+
             let response = try await apiClient.listEvents(options: options)
             let events = response.items.compactMap { CalendarEvent(googleEvent: $0) }
-            return .success(events.sorted { $0.date < $1.date })
+            let sorted = events.sorted { $0.date < $1.date }
+            print("[CalendarEventFetcher] Received \(events.count) events from API; \(sorted.count) remain after sorting/filtering")
+            return .success(sorted)
         } catch {
             let fallback = fallbackEvents()
-            print("Failed to fetch Google Calendar events: \(error)")
+            print("[CalendarEventFetcher] Failed to fetch Google Calendar events: \(error.localizedDescription)")
+            print("[CalendarEventFetcher] Using fallback events count=\(fallback.count)")
             return .fallback(events: fallback, error: error)
         }
     }
@@ -107,6 +114,7 @@ class CalendarEventFetcher {
         }
 
         events.sort { $0.date < $1.date }
+        print("[CalendarEventFetcher] Generated \(events.count) fallback events")
         return events
     }
 }

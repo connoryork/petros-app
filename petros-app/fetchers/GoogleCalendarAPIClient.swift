@@ -77,7 +77,10 @@ actor GoogleCalendarAPIClient {
     }
 
     func listEvents(options: GoogleCalendarListEventsOptions) async throws -> GoogleCalendarEventsResponse {
+        print("[GoogleCalendarAPIClient] listEvents called with calendarID=\(options.calendarID) timeMin=\(iso8601Formatter.string(from: options.timeMin)) timeMax=\(options.timeMax.map { iso8601Formatter.string(from: $0) } ?? "nil") maxResults=\(options.maxResults) singleEvents=\(options.singleEvents) orderBy=\(options.orderBy) pageToken=\(options.pageToken ?? "nil")")
+
         guard let encodedCalendarID = options.calendarID.addingPercentEncoding(withAllowedCharacters: Self.calendarIDAllowedCharacters) else {
+            print("[GoogleCalendarAPIClient] Failed to percent-encode calendar ID: \(options.calendarID)")
             throw GoogleCalendarAPIError.invalidCalendarID
         }
 
@@ -104,32 +107,55 @@ actor GoogleCalendarAPIClient {
         components.queryItems = queryItems
 
         guard let url = components.url else {
+            print("[GoogleCalendarAPIClient] URLComponents failed to build URL for calendarID=\(options.calendarID)")
             throw GoogleCalendarAPIError.invalidURL
         }
 
+        print("[GoogleCalendarAPIClient] Built request URL: \(url.absoluteString)")
+        print("[GoogleCalendarAPIClient] Requesting access token with scopes: \(Self.requiredScopes.joined(separator: ", "))")
+
         let accessToken = try await authService.accessToken(scopes: Self.requiredScopes)
+
+        print("[GoogleCalendarAPIClient] Successfully retrieved access token")
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
 
+        print("[GoogleCalendarAPIClient] Executing request to Google Calendar API")
+
         let (data, response) = try await urlSession.data(for: request)
 
         guard let httpResponse = response as? HTTPURLResponse else {
+            print("[GoogleCalendarAPIClient] Response was not an HTTPURLResponse")
             throw GoogleCalendarAPIError.requestFailed(statusCode: -1, message: nil)
         }
 
+        print("[GoogleCalendarAPIClient] Received response with status=\(httpResponse.statusCode) dataLength=\(data.count)B")
+
         guard 200..<300 ~= httpResponse.statusCode else {
             let message = String(data: data, encoding: .utf8)
+            if let message = message {
+                print("[GoogleCalendarAPIClient] Request failed with status \(httpResponse.statusCode). Body: \(message)")
+            } else {
+                print("[GoogleCalendarAPIClient] Request failed with status \(httpResponse.statusCode). Unable to decode body.")
+            }
             throw GoogleCalendarAPIError.requestFailed(statusCode: httpResponse.statusCode, message: message)
         }
 
         let decoder = JSONDecoder.googleCalendarDecoder
 
         do {
-            return try decoder.decode(GoogleCalendarEventsResponse.self, from: data)
+            let decoded = try decoder.decode(GoogleCalendarEventsResponse.self, from: data)
+            print("[GoogleCalendarAPIClient] Successfully decoded \(decoded.items.count) events from API response")
+            return decoded
         } catch {
+            if let body = String(data: data, encoding: .utf8) {
+                print("[GoogleCalendarAPIClient] Decoding failed. Raw response body: \(body)")
+            } else {
+                print("[GoogleCalendarAPIClient] Decoding failed and response body could not be converted to string (length \(data.count)B)")
+            }
             throw GoogleCalendarAPIError.decodingFailed
         }
     }

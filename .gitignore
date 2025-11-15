@@ -8,8 +8,7 @@
 petros-app/Assets.xcassets/
 
 # secret api keys
-petros-app-key.json
-calendar.id
+/secrets
 
 ## User settings
 xcuserdata/
