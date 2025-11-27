@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FeedbackView: View {
     @State private var name: String = ""
-    @State private var contact: String = ""
+    @State private var email: String = ""
     @State private var message: String = ""
     @State private var isSubmitting: Bool = false
     @State private var showSuccess: Bool = false
@@ -46,12 +46,12 @@ struct FeedbackView: View {
                         .padding(.horizontal, 24)
                         
                         VStack(alignment: .leading, spacing: 12) {
-                            Text("Contact")
+                            Text("Email")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundColor(.secondary)
                             
-                            TextField("Email or phone", text: $contact)
+                            TextField("Your email", text: $email)
                                 .textFieldStyle(.plain)
                                 .keyboardType(.emailAddress)
                                 .autocapitalization(.none)
@@ -115,7 +115,7 @@ struct FeedbackView: View {
     
     private var isFormValid: Bool {
         !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
-        !contact.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !email.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
         !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
@@ -127,7 +127,7 @@ struct FeedbackView: View {
         
         let feedback = Feedback(
             name: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            contact: contact.trimmingCharacters(in: .whitespacesAndNewlines),
+            email: email.trimmingCharacters(in: .whitespacesAndNewlines),
             message: message.trimmingCharacters(in: .whitespacesAndNewlines),
             timestamp: Date()
         )
@@ -141,7 +141,7 @@ struct FeedbackView: View {
                 if result.success {
                     showSuccess = true
                     name = ""
-                    contact = ""
+                    email = ""
                     message = ""
                     
                     // Reset success message after 5 seconds

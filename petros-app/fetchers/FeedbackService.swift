@@ -30,7 +30,7 @@ actor FeedbackService {
         let values = [
             timestampString,
             feedback.name,
-            feedback.contact,
+            feedback.email,
             feedback.message
         ]
         

@@ -9,7 +9,7 @@ import Foundation
 
 struct Feedback {
     let name: String
-    let contact: String
+    let email: String
     let message: String
     let timestamp: Date
 }
