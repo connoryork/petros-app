@@ -38,6 +38,11 @@
 		11C1D1072F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */; };
 		11C1D10A2F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */; };
 		11C1D10C2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */; };
+		11D1E1F12F6A2B2C00D1E1F1 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1E1F12F6A2B2C00D1E1F2 /* Feedback.swift */; };
+		11D1E1F22F6A2B2C00D1E1F3 /* GoogleSheetsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1E1F22F6A2B2C00D1E1F4 /* GoogleSheetsConfig.swift */; };
+		11D1E1F32F6A2B2C00D1E1F5 /* GoogleSheetsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1E1F32F6A2B2C00D1E1F6 /* GoogleSheetsAPIClient.swift */; };
+		11D1E1F42F6A2B2C00D1E1F7 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1E1F42F6A2B2C00D1E1F8 /* FeedbackService.swift */; };
+		11D1E1F52F6A2B2C00D1E1F9 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1E1F52F6A2B2C00D1E1FA /* FeedbackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +96,11 @@
 		11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarModels.swift; sourceTree = "<group>"; };
 		11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarAPIClient.swift; sourceTree = "<group>"; };
 		11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleCalendarConfig.swift; sourceTree = "<group>"; };
+		11D1E1F12F6A2B2C00D1E1F2 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		11D1E1F22F6A2B2C00D1E1F4 /* GoogleSheetsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSheetsConfig.swift; sourceTree = "<group>"; };
+		11D1E1F32F6A2B2C00D1E1F6 /* GoogleSheetsAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleSheetsAPIClient.swift; sourceTree = "<group>"; };
+		11D1E1F42F6A2B2C00D1E1F8 /* FeedbackService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackService.swift; sourceTree = "<group>"; };
+		11D1E1F52F6A2B2C00D1E1FA /* FeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +136,7 @@
 				1123C8512E86390A00CB38C0 /* Article.swift */,
 				118072342EB990C600B3BA59 /* CalendarEvent.swift */,
 				11C1D1062F5F2B1A00A1B1C0 /* GoogleCalendarModels.swift */,
+				11D1E1F12F6A2B2C00D1E1F2 /* Feedback.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -138,6 +149,8 @@
 				11C1D1092F5F2B1A00A1B1C0 /* GoogleCalendarAPIClient.swift */,
 				11C1D1052F5F2B1A00A1B1C0 /* GoogleCalendarAuthService.swift */,
 				1123C8502E86390A00CB38C0 /* ArticleFetcher.swift */,
+				11D1E1F32F6A2B2C00D1E1F6 /* GoogleSheetsAPIClient.swift */,
+				11D1E1F42F6A2B2C00D1E1F8 /* FeedbackService.swift */,
 			);
 			path = fetchers;
 			sourceTree = "<group>";
@@ -226,6 +239,7 @@
 				11A1B1AC2EA1B1A700A1B1A1 /* MediaPlayerBar.swift */,
 				11A1B1AE2EA1B1A800A1B1A1 /* CalendarView.swift */,
 				11A1B1B02EA1B1A900A1B1A1 /* CalendarEventView.swift */,
+				11D1E1F52F6A2B2C00D1E1FA /* FeedbackView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -234,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				11C1D10B2F5F2B1A00A1B1C0 /* GoogleCalendarConfig.swift */,
+				11D1E1F22F6A2B2C00D1E1F4 /* GoogleSheetsConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -399,6 +414,11 @@
 				11A1B1AF2EA1B1A800A1B1A1 /* CalendarView.swift in Sources */,
 				11A1B1B12EA1B1A900A1B1A1 /* CalendarEventView.swift in Sources */,
 				11975E812EC0C437007E4A77 /* HomeView.swift in Sources */,
+				11D1E1F12F6A2B2C00D1E1F1 /* Feedback.swift in Sources */,
+				11D1E1F22F6A2B2C00D1E1F3 /* GoogleSheetsConfig.swift in Sources */,
+				11D1E1F32F6A2B2C00D1E1F5 /* GoogleSheetsAPIClient.swift in Sources */,
+				11D1E1F42F6A2B2C00D1E1F7 /* FeedbackService.swift in Sources */,
+				11D1E1F52F6A2B2C00D1E1F9 /* FeedbackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

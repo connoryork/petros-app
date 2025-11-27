@@ -22,7 +22,7 @@ struct ContentView: View {
     private let tabs = [
         (title: "Home", image: "house"),
         (title: "Calendar", image: "calendar"),
-        (title: "TBD", image: "ellipsis"),
+        (title: "Feedback", image: "envelope"),
         (title: "TBD", image: "ellipsis"),
         (title: "TBD", image: "ellipsis")
     ]
@@ -132,6 +132,8 @@ struct ContentView: View {
                     errorMessage: calendarErrorMessage,
                     onRetry: refreshCalendarEvents
                 )
+            } else if selectedTab == 2 {
+                FeedbackView()
             } else {
                 TBDView(title: tabs[selectedTab].title)
             }

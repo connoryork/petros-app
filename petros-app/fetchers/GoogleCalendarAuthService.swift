@@ -109,7 +109,7 @@ actor GoogleCalendarAuthService {
     static let shared = GoogleCalendarAuthService()
 
     private let credentialsProvider: GoogleServiceAccountCredentialsProviding
-    private var cachedToken: CachedToken?
+    private var cachedTokens: [String: CachedToken] = [:]
 
     private struct CachedToken {
         let accessToken: String
@@ -120,13 +120,19 @@ actor GoogleCalendarAuthService {
             return Date().addingTimeInterval(refreshBuffer) < expirationDate
         }
     }
+    
+    private func scopeKey(for scopes: [String]) -> String {
+        scopes.sorted().joined(separator: " ")
+    }
 
     init(credentialsProvider: GoogleServiceAccountCredentialsProviding = BundleServiceAccountCredentialsProvider()) {
         self.credentialsProvider = credentialsProvider
     }
 
     func accessToken(scopes: [String]) async throws -> String {
-        if let cachedToken = cachedToken, cachedToken.isValid {
+        let key = scopeKey(for: scopes)
+        
+        if let cachedToken = cachedTokens[key], cachedToken.isValid {
             return cachedToken.accessToken
         }
 
@@ -134,7 +140,7 @@ actor GoogleCalendarAuthService {
         let signedJWT = try signJWT(credentials: credentials, scopes: scopes)
         let token = try await requestAccessToken(credentials: credentials, signedJWT: signedJWT)
 
-        cachedToken = CachedToken(
+        cachedTokens[key] = CachedToken(
             accessToken: token.accessToken,
             expirationDate: Date().addingTimeInterval(TimeInterval(token.expiresIn))
         )
