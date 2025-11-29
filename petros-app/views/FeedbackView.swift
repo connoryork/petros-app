@@ -19,96 +19,98 @@ struct FeedbackView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 24) {
-                if showSuccess {
-                    SuccessMessage()
-                        .padding(.top, 32)
-                } else {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("We'd love to hear from you!")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding(.horizontal, 24)
-                            .padding(.top, 24)
+            VStack(alignment: .leading, spacing: 20) {
+                Text("We'd love to hear from you!")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 24)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Name")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+                    
+                    TextField("Your name", text: $name)
+                        .textFieldStyle(.plain)
+                        .padding(12)
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(8)
+                }
+                .padding(.horizontal, 24)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Email")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+                    
+                    TextField("Your email", text: $email)
+                        .textFieldStyle(.plain)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .padding(12)
+                        .background(Color(UIColor.secondarySystemBackground))
+                        .cornerRadius(8)
+                }
+                .padding(.horizontal, 24)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Feedback2")
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+                    
+                    ZStack(alignment: .topLeading) {
                         
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Name")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                                .foregroundColor(.secondary)
-                            
-                            TextField("Your name", text: $name)
-                                .textFieldStyle(.plain)
-                                .padding(12)
-                                .background(Color(UIColor.secondarySystemBackground))
-                                .cornerRadius(8)
-                        }
-                        .padding(.horizontal, 24)
-                        
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Email")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                                .foregroundColor(.secondary)
-                            
-                            TextField("Your email", text: $email)
-                                .textFieldStyle(.plain)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .padding(12)
-                                .background(Color(UIColor.secondarySystemBackground))
-                                .cornerRadius(8)
-                        }
-                        .padding(.horizontal, 24)
-                        
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Feedback2")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
-                                .foregroundColor(.secondary)
-                            
-                            ZStack(alignment: .topLeading) {
-                                
 //                                TextField("Your feedback, suggestion, bug report, or question...", text: $message,  axis: .vertical)
 //                                    .lineLimit(5...10)
-                                TextField("Feedback2", text: $message)
-                                    .textFieldStyle(.plain)
-                                    .padding(12)
-                                    .background(Color(UIColor.secondarySystemBackground))
-                                    .cornerRadius(8)
-                            
-                            }
-                        }
-                        .padding(.horizontal, 24)
-                        
-                        if let errorMessage = errorMessage {
-                            Text(errorMessage)
-                                .font(.subheadline)
-                                .foregroundColor(.red)
-                                .padding(.horizontal, 24)
-                        }
-                        
-                        Button(action: submitFeedback) {
-                            HStack {
-                                if isSubmitting {
-                                    ProgressView()
-                                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                } else {
-                                    Text("Submit Feedback")
-                                        .fontWeight(.semibold)
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(isFormValid && !isSubmitting ? Color(red: 0.1, green: 0.2, blue: 0.6) : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                        }
-                        .disabled(!isFormValid || isSubmitting)
-                        .padding(.horizontal, 24)
-                        .padding(.bottom, 24)
+                        TextField("Feedback2", text: $message)
+                            .textFieldStyle(.plain)
+                            .padding(12)
+                            .background(Color(UIColor.secondarySystemBackground))
+                            .cornerRadius(8)
+                    
                     }
                 }
+                .padding(.horizontal, 24)
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .font(.subheadline)
+                        .foregroundColor(.red)
+                        .padding(.horizontal, 24)
+                }
+                
+                Button(action: submitFeedback) {
+                    HStack(spacing: 8) {
+                        if isSubmitting {
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            Text("Submitting...")
+                                .fontWeight(.semibold)
+                        } else if showSuccess {
+                            Image(systemName: "checkmark.circle.fill")
+                            Text("Feedback submitted!")
+                                .fontWeight(.semibold)
+                        } else {
+                            Text("Submit Feedback")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        showSuccess ? Color.green :
+                        (isFormValid && !isSubmitting ? Color(red: 0.1, green: 0.2, blue: 0.6) : Color.gray)
+                    )
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                }
+                .disabled(!isFormValid || isSubmitting || showSuccess)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 24)
             }
             .background(Color.white)
         }
@@ -141,13 +143,16 @@ struct FeedbackView: View {
                 isSubmitting = false
                 
                 if result.success {
-                    showSuccess = true
+                    // Clear form immediately
                     name = ""
                     email = ""
                     message = ""
                     
-                    // Reset success message after 5 seconds
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    // Show success message
+                    showSuccess = true
+                    
+                    // Reset success message after 3 seconds
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         showSuccess = false
                     }
                 } else {
@@ -158,27 +163,4 @@ struct FeedbackView: View {
     }
 }
 
-private struct SuccessMessage: View {
-    var body: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 48))
-                .foregroundColor(.green)
-            
-            Text("Thank you!")
-                .font(.title2)
-                .fontWeight(.semibold)
-            
-            Text("Your feedback has been submitted successfully.")
-                .font(.body)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-        }
-        .padding(24)
-        .frame(maxWidth: .infinity)
-        .background(Color(UIColor.secondarySystemBackground))
-        .cornerRadius(16)
-        .padding(.horizontal, 24)
-    }
-}
 
