@@ -62,20 +62,22 @@ struct FeedbackView: View {
                         .padding(.horizontal, 24)
                         
                         VStack(alignment: .leading, spacing: 12) {
-                            Text("Feedback")
+                            Text("Feedback2")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundColor(.secondary)
                             
-                            TextEditor(text: $message)
-                                .frame(minHeight: 120)
-                                .padding(8)
-                                .background(Color(UIColor.secondarySystemBackground))
-                                .cornerRadius(8)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color(UIColor.separator), lineWidth: 0.5)
-                                )
+                            ZStack(alignment: .topLeading) {
+                                
+//                                TextField("Your feedback, suggestion, bug report, or question...", text: $message,  axis: .vertical)
+//                                    .lineLimit(5...10)
+                                TextField("Feedback2", text: $message)
+                                    .textFieldStyle(.plain)
+                                    .padding(12)
+                                    .background(Color(UIColor.secondarySystemBackground))
+                                    .cornerRadius(8)
+                            
+                            }
                         }
                         .padding(.horizontal, 24)
                         
