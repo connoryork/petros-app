@@ -76,13 +76,6 @@ struct FeedbackView: View {
                 }
                 .padding(.horizontal, 24)
                 
-                if let errorMessage = errorMessage {
-                    Text(errorMessage)
-                        .font(.subheadline)
-                        .foregroundColor(.red)
-                        .padding(.horizontal, 24)
-                }
-                
                 Button(action: submitFeedback) {
                     HStack(spacing: 8) {
                         if isSubmitting {
@@ -111,6 +104,13 @@ struct FeedbackView: View {
                 .disabled(!isFormValid || isSubmitting || showSuccess)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 24)
+
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .font(.subheadline)
+                        .foregroundColor(.red)
+                        .padding(.horizontal, 24)
+                }
             }
             .background(Color.white)
         }
